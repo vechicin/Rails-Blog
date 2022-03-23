@@ -19,18 +19,18 @@ RSpec.describe 'Posts', type: :request do
   end
 
   describe 'GET #show', type: :request do
-  before(:example) { get '/users/:user_id/posts/:id' }
+    before(:example) { get '/users/:user_id/posts/:id' }
 
-  it 'is a success' do
-    expect(response).to have_http_status(:ok)
-  end
+    it 'is a success' do
+      expect(response).to have_http_status(:ok)
+    end
 
-  it "renders 'index' template" do
-    expect(response).to render_template('show')
-  end
+    it "renders 'index' template" do
+      expect(response).to render_template('show')
+    end
 
-  it 'response body includes correct placeholder text' do
-    expect(response.body).to include("This should be a page where you can see an individual post for an user")
-  end
+    it 'response body includes correct placeholder text' do
+      expect(response.body).to include('This should be a page where you can see an individual post for an user')
+    end
   end
 end
