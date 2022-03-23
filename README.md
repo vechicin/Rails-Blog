@@ -26,7 +26,7 @@ git clone git@github.com:vechicin/Rails-Blog.git
 3. Open terminal and navigate to the project folder.
 4. Run `gem install`, `bundle install` and `npm install` to install all of the project's required dependencies.
 5. Run `rails s` to start the project's live server and take a look at the terminal to see the URL address it is running on.
-6. If you want to run some unit tests, all you need to do is run the `rspec` command on your terminal after executing the `gem install rspec` command.
+6. If you want to run some unit tests, all you need to do is run the `rspec` command on your terminal after [installing](https://github.com/rspec/rspec-rails) `rspec-rails`
 
 ## Author
 
