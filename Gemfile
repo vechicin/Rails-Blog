@@ -53,6 +53,7 @@ group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   # Rspec installation
   gem 'rspec-rails', '~> 5.0.0'
+  gem 'rails-controller-testing'
 end
 
 group :development do
