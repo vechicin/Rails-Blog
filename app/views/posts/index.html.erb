@@ -1,1 +1,38 @@
-<h1>This should be a page where you can see comments for the user's posts</h1>
+<div>
+  <img src="<%= @user.photo %>" class="user-img" alt="user profile picture"></img>
+  <div class="user-info">
+    <p class="user-name"><%= @user.name %></p>
+    <% if @user.postsCounter.nil? %>
+      <p class="posts">Number of posts: 0</p>
+    <% else %>
+      <p class="posts">Number of posts: <%= @user.postsCounter %></p>
+    <% end %>
+    </div>
+  </div>
+</div>
+
+<% @posts.each do |post| %>
+  <div>
+    <h3><%= post.title %></h3>
+    <p><%= post.text %></p>
+    <% if post.commentsCounter.nil? %>
+      <p>Comments: 0</p>
+    <% else %>
+      <p>Comments: <%= post.commentsCounter %></p>
+    <% end %>
+    <% if post.likesCounter.nil? %>
+      <p>Likes: 0</p>
+    <% else %>
+      <p><%= post.likesCounter %></p>
+    <% end %>
+  </div>
+  <div>
+    <% if post.recent_comments.empty? %>
+      <p>No comments yet</p>
+    <% else %>
+      <% post.recent_comments.each do |comment| %>
+        <p><%= comment.author_name %>: <%= comment.text %></p>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

@@ -7,5 +7,9 @@ class Comment < ApplicationRecord
     post.update(commentsCounter: total_comments)
   end
 
+  def author_name
+    author.name
+  end
+
   after_save :comment_counter
 end
