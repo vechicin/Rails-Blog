@@ -7,9 +7,13 @@
     <% if post.recent_comments.empty? %>
       <p>No comments yet</p>
     <% else %>
-      <% post.recent_comments.each do |comment| %>
-        <%= render 'layouts/custom/comment_card', comment: comment %>
-      <% end %>
+      <div class="comment-container">
+        <% post.recent_comments.each do |comment| %>
+          <%= render 'layouts/custom/comment_card', comment: comment %>
+        <% end %>
+      </div>
     <% end %>
   </div>
 <% end %>
+
+<button>Pagination</button>

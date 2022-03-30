@@ -1,7 +1,7 @@
 <div class="user-div">
   <img src="<%= user.photo %>" class="user-img" alt="user profile picture"></img>
 
-  <%= link_to user_path(user) do %>
+  <%= link_to user_path(user), class:"user-link" do %>
     <div class="user-info">
       <h3 class="user-name"><%= user.name %></h3>
       <% if user.postsCounter.nil? %>

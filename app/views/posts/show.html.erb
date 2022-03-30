@@ -3,7 +3,9 @@
 <% if @comments.empty? %>
   <p>No comments yet</p>
 <% else %>
-  <% @comments.each do |comment| %>
-    <%= render 'layouts/custom/comment_card', comment: comment %>
-  <% end %>
+  <div class="comment-container">
+    <% @comments.each do |comment| %>
+      <%= render 'layouts/custom/comment_card', comment: comment %>
+    <% end %>
+  </div>
 <% end %>
