@@ -9,5 +9,7 @@ Rails.application.routes.draw do
     resources :posts, only: [:index, :show]
   end
 
+  resources :post_forms, only: [:new]
+  post 'post_forms' to: 'post_forms#create'
   root "users#index"
 end
