@@ -1,0 +1,16 @@
+<%= link_to user_post_path(post.author, post), class:"post-card" do %>
+  <div class="post-div">
+    <h3><%= post.title %></h3>
+    <p><%= post.text %></p>
+    <% if post.commentsCounter.nil? %>
+      <p>Comments: 0</p>
+    <% else %>
+      <p>Comments: <%= post.commentsCounter %></p>
+    <% end %>
+    <% if post.likesCounter.nil? %>
+      <p>Likes: 0</p>
+    <% else %>
+      <p>Likes: <%= post.likesCounter %> </p>
+    <% end %>
+  </div>
+<% end %>

@@ -1,1 +1,13 @@
-<h1>This should be a page where you can see each individual user's profile</h1>
+<div>
+  <%= render 'layouts/custom/user_card', user: @user %>
+
+  <div class="user-bio">
+    <h3>Bio</h3>
+    <p><%= @user.bio %></p>
+  </div>
+
+  <% @posts.each do |post| %>
+    <%= render 'layouts/custom/post_card', post: post %>
+  <% end %>
+  <button><%= link_to 'See all posts', user_posts_path(@user) %></button>
+</div>

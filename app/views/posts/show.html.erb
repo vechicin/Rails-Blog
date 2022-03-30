@@ -1,1 +1,11 @@
-<h1>This should be a page where you can see an individual post for an user</h1>
+<%= render 'layouts/custom/post_card', post: @post %>
+
+<% if @comments.empty? %>
+  <p>No comments yet</p>
+<% else %>
+  <div class="comment-container">
+    <% @comments.each do |comment| %>
+      <%= render 'layouts/custom/comment_card', comment: comment %>
+    <% end %>
+  </div>
+<% end %>

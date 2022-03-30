@@ -1,1 +1,3 @@
-<h1>This should be a page that displays a list of all users</h1>
+<% @users.each do |user| %>
+  <%= render 'layouts/custom/user_card', user: user %> <br>
+<% end %> 

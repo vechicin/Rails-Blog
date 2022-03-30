@@ -1,1 +1,19 @@
-<h1>This should be a page where you can see comments for the user's posts</h1>
+<%= render 'layouts/custom/user_card', user: @user %>
+
+<% @posts.each do |post| %>
+  <%= render 'layouts/custom/post_card', post: post %>
+
+  <div>
+    <% if post.recent_comments.empty? %>
+      <p>No comments yet</p>
+    <% else %>
+      <div class="comment-container">
+        <% post.recent_comments.each do |comment| %>
+          <%= render 'layouts/custom/comment_card', comment: comment %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<button>Pagination</button>
