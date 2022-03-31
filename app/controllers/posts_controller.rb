@@ -10,9 +10,13 @@ class PostsController < ApplicationController
     @comments = Comment.where(post_id: @post.id).all
   end
 
+  def new
+    @post = Post.new
+  end
+
   def create
     @user = User.find(params[:user_id])
-    @post = current_user.posts.new(params.require(:post).permit(:title, :text))
+    @post = current_user.posts.new(post_params)
     @post.commentsCounter = 0
     @post.likesCounter = 0
 
@@ -22,5 +26,11 @@ class PostsController < ApplicationController
       flash[:alert] = 'Post could not be published'
       render :new
     end
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :text)
   end
 end

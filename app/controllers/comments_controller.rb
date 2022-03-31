@@ -1,8 +1,12 @@
 class CommentsController < ApplicationController
+  def new
+    @comment = Comment.new
+  end
+
   def create
     @user = User.find(params[:user_id])
     @post = Post.find(params[:post_id])
-    @comment = current_user.comments.new(params.require(:comment).permit(:text))
+    @comment = current_user.comments.new(comment_params)
     @comment.post_id = @post.id
 
     if @comment.save
@@ -11,5 +15,11 @@ class CommentsController < ApplicationController
       flash[:alert] = 'Could not post comment'
       render :new
     end
+  end
+
+  private
+
+  def comment_params
+    params.require(:comment).permit(:text)
   end
 end
