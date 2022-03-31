@@ -10,11 +10,6 @@ class PostsController < ApplicationController
     @comments = Comment.where(post_id: @post.id).all
   end
 
-  def new
-    @user = User.find(params[:user_id])
-    @post = Post.new
-  end
-
   def create
     @user = User.find(params[:user_id])
     @post = current_user.posts.new(params.require(:post).permit(:title, :text))

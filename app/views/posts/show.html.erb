@@ -8,5 +8,6 @@
       <%= render 'layouts/custom/comment_card', comment: comment %>
     <% end %>
   </div>
-<% end %>
+<% end %><br>
 <%= button_to 'Like', user_post_likes_path(user_id: @user, post_id: @post.id), action: 'create' %>
+<%= render 'layouts/custom/comment_form' %>
