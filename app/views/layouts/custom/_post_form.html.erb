@@ -1,0 +1,17 @@
+<h2>Publish a new post</h2>
+
+<%= form_with model: [@user, @user.posts.build] do |form| %>
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :text %><br>
+    <%= form.text_area :text %>
+  </div>
+
+  <div>
+    <%= form.submit "Publish Post" %>
+  </div>
+<% end %><br>

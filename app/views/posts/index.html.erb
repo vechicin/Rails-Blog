@@ -1,5 +1,3 @@
-<%= link_to 'Publish New Post', new_user_post_path %>
-
 <%= render 'layouts/custom/user_card', user: @user %>
 
 <% @posts.each do |post| %>
@@ -17,5 +15,7 @@
     <% end %>
   </div>
 <% end %>
+
+<%= render 'layouts/custom/post_form' %>
 
 <button>Pagination</button>
