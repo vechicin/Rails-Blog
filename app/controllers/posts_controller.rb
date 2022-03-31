@@ -5,6 +5,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:user_id])
     @post = Post.find(params[:id])
     @comments = Comment.where(post_id: @post.id).all
   end
@@ -16,7 +17,7 @@ class PostsController < ApplicationController
 
   def create
     @user = User.find(params[:user_id])
-    @post = @current_user.posts.new(params.require(:post).permit(:title, :text))
+    @post = current_user.posts.new(params.require(:post).permit(:title, :text))
     @post.commentsCounter = 0
     @post.likesCounter = 0
 
