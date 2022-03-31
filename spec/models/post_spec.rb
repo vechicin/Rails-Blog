@@ -10,7 +10,13 @@ RSpec.describe Post, type: :model do
   end
 
   it "title shouldn't exceed 250 character" do
-    subject.title = "Latest August of this year I started to learn Rails. I was following the book Ruby on Rails Tutorial from Learn Enough To Be Dangerous website which uses Minitest to test their application. Truth is: I was not understanding a single line of code about those tests. So I decided to skip them and try to write it using RSpec because the syntax is way more similar to human language than others. But you may be wondering:"
+    subject.title = 'Latest August of this year I started to learn Rails.
+    I was following the book Ruby on Rails Tutorial from Learn Enough To Be Dangerous
+    website which uses Minitest to test their application.
+    Truth is: I was not understanding a single line of code about those tests.
+    So I decided to skip them and try to write it using RSpec because the syntax
+    is way more similar to human language than others.
+    But you may be wondering:'
     expect(subject).to_not be_valid
   end
 
