@@ -9,3 +9,4 @@
     <% end %>
   </div>
 <% end %>
+<%= button_to 'Like', user_post_likes_path(@current_user, @post), method: :post %>

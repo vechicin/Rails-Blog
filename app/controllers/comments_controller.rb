@@ -8,13 +8,13 @@ class CommentsController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     @post = Post.find(params[:post_id])
-    @comment = @post.comments.new(params.require(:comment).permit(:text))
-    @comment.author_id = @user.id
+    @comment = @current_user.comments.new(params.require(:comment).permit(:text))
+    @comment.post_id = @post.id
 
     if @comment.save
       redirect_to user_post_path(@user, @post)
     else
-      flash[:alert] = "Could not post comment"
+      flash[:alert] = 'Could not post comment'
       render :new
     end
   end
